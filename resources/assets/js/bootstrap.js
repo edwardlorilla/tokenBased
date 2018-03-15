@@ -1,4 +1,5 @@
 
+
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 
@@ -54,3 +55,6 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+window.DB = require('./db.js');
+
+window.Store = require('./store.js');

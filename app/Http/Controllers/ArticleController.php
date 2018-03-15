@@ -35,7 +35,15 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        return $article;
+        $entry = $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+
+        $article = Article::create($entry);
+
+        return response()->json($article, 201);
     }
 
     /**
@@ -46,7 +54,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return $article;
     }
 
     /**
@@ -57,9 +65,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        $article = Article::create($request->all());
 
-        return response()->json($article, 201);
     }
 
     /**
